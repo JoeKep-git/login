@@ -18,7 +18,7 @@ public class Main
         try
         {
             //Must match exactly Admin and Password with no whitespace before or after and case sensitive
-            if (username.trim().equals("Admin") && password.trim().equals("Password"))
+            if (username.equals("Admin") && password.equals("Password"))
             {
                 System.out.println("Welcome " + username);
             }
