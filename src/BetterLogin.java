@@ -1,17 +1,20 @@
+import org.junit.jupiter.api.Test;
+
 import java.util.Arrays;
 import java.util.Scanner;
 
 public class BetterLogin
 {
+    private static final String[][] users = {
+            {"admin", "Password"},
+            {"bruce", "Wayne"},
+            {"selina", "Kyle"},
+            {"tim", "Drake"},
+            {"dick", "Grayson"}};
+
     public static void main(String[] args)
     {
         //creating a 2d string array containing usernames and passwords for 5 users
-        String[][] users = {
-                {"admin", "Password"},
-                {"bruce", "Wayne"},
-                {"selina", "Kyle"},
-                {"tim", "Drake"},
-                {"dick", "Grayson"}};
 
         //Scanner package for input
         Scanner input = new Scanner(System.in);
@@ -41,15 +44,12 @@ public class BetterLogin
                 }
                 else
                 {
-                    for (String[] accounts : users) {
+//                    for (String[] accounts : users) {
                         //Must match the username and password in array (username not case-sensitive)
                         //with no whitespace before or after
-                        if (accounts[0].equals(username) && accounts[1].equals(password)) {
-                            System.out.println("Welcome : " + accounts[0]);
-                            //ends the program
+                        if(login(username, password))
                             return;
-                        }
-                    }
+//                    }
                 }
             }
             catch (Exception e)
@@ -62,5 +62,19 @@ public class BetterLogin
             }
         } while (attempts < 3);
         System.err.println("Too many attempts");
+    }
+
+    public static boolean login(String username, String password)
+    {
+        for (String[] accounts: users)
+        {
+            if (accounts[0].equals(username) && accounts[1].equals(password))
+            {
+                System.out.println("Welcome : " + accounts[0]);
+                //ends the program
+                return true;
+            }
+        }
+        return false;
     }
 }
