@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 public class BetterLogin
 {
+    //creating a 2d string array containing usernames and passwords for 5 users
     private static final String[][] users = {
             {"admin", "Password"},
             {"bruce", "Wayne"},
@@ -14,8 +15,6 @@ public class BetterLogin
 
     public static void main(String[] args)
     {
-        //creating a 2d string array containing usernames and passwords for 5 users
-
         //Scanner package for input
         Scanner input = new Scanner(System.in);
 
@@ -44,12 +43,10 @@ public class BetterLogin
                 }
                 else
                 {
-//                    for (String[] accounts : users) {
                         //Must match the username and password in array (username not case-sensitive)
                         //with no whitespace before or after
                         if(login(username, password))
                             return;
-//                    }
                 }
             }
             catch (Exception e)
